@@ -1,0 +1,217 @@
+.main {
+   grid-row: 1 / 3;
+   grid-column: 2 / 3;
+   height: 100vh;
+   /* display: flex;
+   flex-direction: column; */
+}
+
+
+.cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 50px;
+    padding: 30px;
+    height: 82.9vh;
+    margin-right: 5px;
+    overflow-y: auto;
+}
+
+.cards-container::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.cards-container::-webkit-scrollbar-thumb {
+    background-color: #d8a790b7; 
+    border-radius: 10px; 
+}
+
+
+.task-card > .card-content {
+    font-family: "DM Sans", sans-serif;
+    color: #9b4922;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-inline: 20px;
+}
+
+.task-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #d8a790;
+    border-radius: 36px;
+    height: 300px;
+    min-width: 295px;
+    max-width: 415px;
+    box-shadow: 15px 15px #0000002a;
+    
+}
+
+.task-card > .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 0;
+}
+
+.task-card h2 {
+    font-family: "DM Sans", sans-serif;
+    color: #9b4922;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+button.edit {
+    background-color: transparent;
+    border: none;
+}
+
+button.edit img {
+    width: 30px;
+}
+
+button.edit img:hover {
+    transform: scale(1.1);
+}
+
+#priority {
+    width: 30px;
+    height: 30px;
+    /* background-color: white; */
+}
+
+#one, 
+#two,
+#three {
+    opacity: .5;
+}
+
+#one:hover, 
+#two:hover,
+#three:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+
+h3 {
+    font-family: "DM Sans", sans-serif;
+    color: #9b4922;
+    font-weight: 500;
+    font-size: 1.2rem;;
+    padding-inline: 2px;
+}
+
+div.tasks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 160px;
+    padding-right: 8px;
+    overflow-y: auto;
+}
+
+.tasks-container::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.tasks-container::-webkit-scrollbar-thumb {
+    background-color: #9b48227d; 
+    border-radius: 10px; 
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    background-color: #efe7dd;
+    border-radius: 10px;
+    height: 45px;
+    padding: 15px 10px;
+    gap: 10px;
+}
+
+input[type="checkbox"] {
+    background-color: #d4c7b5;
+    border-radius: 8px;
+    height: 35px;
+    width: 35px;
+    appearance: none;
+    -webkit-appearance: none; /* hide appearance in Safari*/
+    cursor: pointer;
+}
+
+input[type="checkbox"]:hover {
+    background-color: #b7ab9b;
+}
+
+
+input:checked::after {
+    content: "✔";
+    font-size: 1.8rem;
+    bottom: 10%;
+    left: 18%;
+    color: #9b4922;
+    position: relative;
+}
+
+/* when box is checked, strikeout <p> right after it in the DOM  */
+input:checked + p {
+    text-decoration-line: line-through;
+}
+
+.task > p {
+    font-size: 1.3rem;
+}
+
+
+.no-task {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 15px;
+    background-color: #efe7dd;
+    width: 100%;
+    border-radius: 10px;
+    padding: 15px 10px;
+}
+
+.no-task p {
+    font-size: 1.3rem;
+}
+
+.no-task:hover {
+    color: transparent;
+    background-color: #e5ddd3;
+}
+
+.no-task:hover::after {
+    position: relative;
+    content: "Click to Complete Task";
+    font-size: 1.3rem;
+    color: #9b4922;
+    bottom: 12%;
+    cursor: pointer;
+}
+
+
+@media (min-width: 1300px) {
+    .task-card {
+        max-width: 520px;
+        height: 360px;
+    }
+
+    div.tasks-container {
+        height: 220px;
+    }
+}

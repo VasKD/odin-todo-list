@@ -1,0 +1,31 @@
+/* Fonts */
+
+@font-face {
+    font-family: 'Roxborough';
+    src: url("../fonts/Roxborough\ CF.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #9b4922;
+    height: 100%;
+    /* width: 100vw; */
+    overflow: hidden;
+}
+
+.app-container {
+    display: grid;
+    grid-template-columns: 330px auto;
+    grid-template-rows: 100px auto;
+    height: 100vh;
+    
+}
+
+button {
+    cursor: pointer;
+}
