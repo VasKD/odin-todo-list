@@ -1,5 +1,5 @@
 import editImg from "../img/Edit Icon (1).png";
-import {prioritySVG} from "./svg";
+import { prioritySVG } from "./svg";
 
 export class Card {
     static cards = [];
@@ -16,6 +16,8 @@ export class Card {
         // Create card container
         const taskCard = document.createElement("div");
         taskCard.classList.add("task-card");
+        console.log(this.task.id);
+        taskCard.id = this.task.id;
 
         // Add header and content to the card
         taskCard.appendChild(this.createCardHeader());
@@ -76,8 +78,10 @@ export class Card {
         if (this.task.subtasks.length === 0) {
             tasksContainer.appendChild(this.noSubtasks());
         } else {
+            this.task.subtasks = addSubtaskStates(this.task.subtasks);
             for (const item of this.task.subtasks) {
-                tasksContainer.appendChild(this.createSubtask(item));
+                console.log(item.title);
+                tasksContainer.appendChild(this.createSubtask(item.title.trim()));
             }
         }
 
@@ -111,6 +115,21 @@ export class Card {
         message.textContent = "No Subtasks!"
         noSubtaskDiv.appendChild(message);
 
+        const completeTaskButton = document.createElement("button");
+        completeTaskButton.classList.add("after");
+        completeTaskButton.textContent = "Click to Complete Task";
+        noSubtaskDiv.appendChild(completeTaskButton);
+
         return noSubtaskDiv;
     }
+}
+
+function addSubtaskStates(subtasks) {
+    subtasks = subtasks.split(",");
+    const subtaskStates = subtasks.map(title => ({
+        title,
+        completed: false
+    }));
+    
+    return subtaskStates;
 }

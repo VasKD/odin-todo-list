@@ -1,7 +1,6 @@
 #add-task {
     position: absolute;
     margin: auto;
-    top: 22%;
     height: 390px;
     width: 420px;
     border-radius: 25px;
@@ -9,6 +8,10 @@
     border: none;
     background-color: #efe7dd;
     box-shadow: 15px 15px #0000002a;
+}
+
+#add-task::backdrop {
+    backdrop-filter: blur(2px);
 }
 
 #add-task h2 {
