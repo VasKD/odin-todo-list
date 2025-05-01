@@ -65,12 +65,14 @@ button.add-project {
     background-color: #d8a790;
     padding: 8px 10px;
     border-radius: 18px;
-    box-shadow: 6px 6px #70584e89;
+    box-shadow: 4px 4px #6b433187;
 }
 
-nav button:focus:not(.add-project) {
+nav button.clicked:not(.add-project) {
     background-color: #a2827489;
     color: #fdf8f3;
     border-radius: 10px;
     padding-inline: 10px;
+    box-shadow: 3px 3px #70584e89;
+
 }

@@ -29,6 +29,10 @@ export class Task {
 
 
     // getters
+    get id() {
+        return this.#id;
+    }
+
     get title() {
         return this.#title;
     }
@@ -73,5 +77,9 @@ export class Task {
 
     set project(project) {
         this.#project = project;
+    }
+
+    set subtasks(subtasks) {
+        this.#subtasks = subtasks;
     }
 }
