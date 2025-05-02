@@ -40,7 +40,6 @@ nav h1 {
     width: 20px;
 }
 
-
 .rotate-up {
     transform: rotate(180deg);
     transition: transform 0.3s ease;
@@ -56,8 +55,21 @@ nav h1 {
     flex-direction: column;
     align-items: flex-start;
     padding-left: 8px;
+    padding-right: 8px;
     margin-top: 15px;
     gap: .8rem;
+    height: 155px;
+    overflow-y: auto;
+    padding-bottom: 10px;
+}
+
+.dropdown::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.dropdown::-webkit-scrollbar-thumb {
+    background-color: #764b364f; 
+    border-radius: 10px; 
 }
 
 button.add-project {

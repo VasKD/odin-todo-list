@@ -8,15 +8,18 @@ import { Card } from "./card";
 import { createTask } from "./createTask";
 import { noSubtaskEventListener, subtaskEventListener } from "./handleTasks";
 import { dropdown, filteredViews } from "./nav";
+import { createProject } from "./newProject";
 
 
 
 
 dropdown();
 filteredViews();
+createProject();
 createTask();
 subtaskEventListener();
 noSubtaskEventListener();
+
 
 const task1 = new Task("Clean House", "Vacuum, Bathroom, Dishes, Windows", "May 5th", 2, "personal");
 const task2 = new Task("Walk Doggo", "", "April 30th", 2, "work");

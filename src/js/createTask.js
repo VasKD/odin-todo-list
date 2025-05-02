@@ -16,23 +16,26 @@ function createTask() {
     addTaskForm.addEventListener("submit", (e) => {
         e.preventDefault();
         
-        let title = document.getElementById("title").value;
-        console.log(title);
+        if (e.target.closest("#add-task-form")) {
+            let title = document.getElementById("title").value;
+            console.log(title);
 
-        let subtasks = document.getElementById("subtasks").value;
-    
-        let dueDate = document.getElementById("due-date").value;
-        dueDate = formatDate(dueDate);
-        console.log(dueDate);
+            let subtasks = document.getElementById("subtasks").value;
+        
+            let dueDate = document.getElementById("due-date").value;
+            dueDate = formatDate(dueDate);
+            console.log(dueDate);
 
-        let priority = document.getElementById("task-priority").value;
-        console.log(priority);
+            let priority = document.getElementById("task-priority").value;
+            console.log(priority);
 
-        let project = document.getElementById("project").value;
-        console.log(project);
+            let project = document.getElementById("project").value;
+            console.log(project);
 
-        const task = new Task(title, subtasks, dueDate, priority, project);
-        const card = new Card(task);
+            const task = new Task(title, subtasks, dueDate, priority, project);
+            const card = new Card(task);
+        }
+        
 
     })
 }

@@ -29,7 +29,7 @@
                         </button>
                         <div id="projects-menu" class="dropdown">
                             <button id="personal">Personal</button>
-                            <button id="academic">Academic</button>
+                            <!-- <button id="academic">Academic</button> -->
                             <button id="work">Work</button>
                             <button class="add-project">Add Project</button>
                         </div>
@@ -67,11 +67,23 @@
                     <label for="project">Project</label>
                     <select name="project" id="project">
                         <option value="personal">Personal</option>
-                        <option value="academic">Academic</option>
+                        <!-- <option value="academic">Academic</option> -->
                         <option value="work">Work</option>
                     </select>
 
                     <button type="submit">Create Task</button>
+                </form>
+            </dialog>
+
+            <dialog id="add-project">
+                <div class="add-project-header">
+                    <h2>Add Project</h2>
+                    <button id="project-exit"><img src="./img/Exit Icon.png" alt="exit icon"></button>
+                </div>
+                <form id="add-project-form">
+                    <label for="project-name">Project Name</label>
+                    <input type="text" id="project-name" name="project-name">
+                    <button type="submit">Create Project</button>
                 </form>
             </dialog>
         </div>

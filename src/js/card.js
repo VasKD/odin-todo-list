@@ -18,6 +18,7 @@ export class Card {
         taskCard.classList.add("task-card");
         console.log(this.task.id);
         taskCard.id = this.task.id;
+        console.log(this.task.project);
 
         // Add header and content to the card
         taskCard.appendChild(this.createCardHeader());
