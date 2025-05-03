@@ -36,12 +36,12 @@ function createTask() {
             const card = new Card(task);
         }
         
-
-    })
+        addTaskForm.reset();
+    });
 }
 
 
-function formatDate(date) {
+export function formatDate(date) {
     date = parseISO(date);
     const formattedDate = format(date, "MMMM do");
     return formattedDate;

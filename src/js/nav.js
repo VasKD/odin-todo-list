@@ -60,7 +60,7 @@ function addHighlight(tab) {
     tab.classList.add("clicked");
 }
 
-function clearDOM(allCards) {
+export function clearDOM(allCards) {
     allCards.forEach(card => {
         card.style.display = "none";
     });
@@ -70,7 +70,7 @@ function getCards(allCards, task) {
     return allCards.find(card => card.id === task.id);
 }
 
-function displayCards(tasks, allCards){
+export function displayCards(tasks, allCards){
     for (const task of tasks){
         getCards(allCards, task).style.display = "flex";
     }

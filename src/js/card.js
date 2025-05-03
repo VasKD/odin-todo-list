@@ -54,7 +54,7 @@ export class Card {
 
     createEditButton() {
         const editButton = document.createElement("button");
-        editButton.classList.add("edit");
+        editButton.id = "edit";
 
         const editIcon = document.createElement("img");
         editIcon.src = editImg;
@@ -125,10 +125,10 @@ export class Card {
     }
 }
 
-function addSubtaskStates(subtasks) {
+export function addSubtaskStates(subtasks) {
     subtasks = subtasks.split(",");
     const subtaskStates = subtasks.map(title => ({
-        title,
+        title: title.trim(),
         completed: false
     }));
     

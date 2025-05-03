@@ -25,8 +25,12 @@ export function createProject(){
         projectOption.value = projectName.toLowerCase();
         projectOption.textContent = titleCase(projectName);
 
-        const projectSelection = document.querySelector("#project");
-        projectSelection.appendChild(projectOption);
+        // append option to both select elements (create and edit modals)
+        const projectSelection = document.querySelectorAll("select");
+        projectSelection.forEach(selection => {
+            const option = projectOption.cloneNode(true);
+            selection.appendChild(option);
+        });
         
     });
 }

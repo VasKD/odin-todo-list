@@ -82,4 +82,8 @@ export class Task {
     set subtasks(subtasks) {
         this.#subtasks = subtasks;
     }
+
+    addSubtask(subtask) {
+        this.#subtasks.push(...subtask);
+    }
 }

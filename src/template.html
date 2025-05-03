@@ -67,10 +67,8 @@
                     <label for="project">Project</label>
                     <select name="project" id="project">
                         <option value="personal">Personal</option>
-                        <!-- <option value="academic">Academic</option> -->
                         <option value="work">Work</option>
                     </select>
-
                     <button type="submit">Create Task</button>
                 </form>
             </dialog>
@@ -84,6 +82,37 @@
                     <label for="project-name">Project Name</label>
                     <input type="text" id="project-name" name="project-name">
                     <button type="submit">Create Project</button>
+                </form>
+            </dialog>
+
+            <dialog id="edit-task">
+                <div class="edit-task-header">
+                    <h2>Edit Task</h2>
+                    <button id="edit-exit"><img src="./img/Exit Icon.png" alt="exit icon"></button>
+                </div>
+                <form id="edit-task-form">
+                    <label for="edit-title">Edit Title</label>
+                    <input type="text" id="edit-title" name="edit-title">
+
+                    <label for="add-subtask">Add Subtask</label>
+                    <input type="text" name="add-subtask" id="add-subtask">
+
+                    <label for="remove-subtask">Remove Subtask</label>
+                    <input type="text" name="remove-subtask" id="remove-subtask">
+
+                    <label for="edit-due-date">Due Date</label>
+                    <input type="date" id="edit-due-date" name="edit-due-date">
+
+                    <label for="edit-priority">Edit Priority</label>
+                    <input type="number" name="edit-priority" id="edit-priority" min="1" max="3">
+
+                    <label for="edit-project">Project</label>
+                    <select name="edit-project" id="edit-project">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="personal">Personal</option>
+                        <option value="work">Work</option>
+                    </select>
+                    <button type="submit">Submit Changes</button>
                 </form>
             </dialog>
         </div>

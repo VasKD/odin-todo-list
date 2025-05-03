@@ -22,13 +22,27 @@
     box-shadow: 15px 15px #0000002a;
 }
 
+#edit-task {
+    position: absolute;
+    margin: auto;
+    height: 440px;
+    width: 420px;
+    border-radius: 25px;
+    padding: 20px;
+    border: none;
+    background-color: #efe7dd;
+    box-shadow: 15px 15px #0000002a;
+}
+
 #add-task::backdrop,
-#add-project::backdrop {
+#add-project::backdrop,
+#edit-task::backdrop {
     backdrop-filter: blur(2px);
 }
 
 #add-task h2,
-#add-project h2 {
+#add-project h2,
+#edit-task h2 {
     font-family: "Roxborough", serif;
     font-size: 1.8rem;
     font-weight: lighter;
@@ -37,30 +51,35 @@
 }
 
 .add-task-header,
-.add-project-header {
+.add-project-header,
+.edit-task-header {
     display: flex;
     justify-content: space-between;
 }
 
 .add-task-header button,
-.add-project-header button {
+.add-project-header button,
+.edit-task-header button {
     background-color: transparent;
     border: none;
 }
 
 .add-task-header img,
-.add-project-header img {
+.add-project-header img,
+.edit-task-header img {
     width: 30px;
 }
 
 .add-task-header button:hover,
-.add-project-header button:hover
+.add-project-header button:hover,
+.edit-task-header button:hover
 {
     transform: scale(1.1);
 }
 
 #add-task-form,
-#add-project-form {
+#add-project-form,
+#edit-task-form {
     display: flex;
     flex-direction: column;
     font-family: "DM Sans", sans-serif;
@@ -68,7 +87,8 @@
 }
 
 #add-task-form input, select,
-#add-project-form input {
+#add-project-form input,
+#edit-task-form input {
     margin-bottom: 5px;
     font-family: "DM Sans", sans-serif;
     height: 24px;
@@ -78,7 +98,8 @@
 }
 
 #add-task-form button,
-#add-project-form button {
+#add-project-form button,
+#edit-task-form button {
     font-size: 1.3rem;
     background-color: #d8a790;
     color: #764b36;

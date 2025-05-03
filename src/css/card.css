@@ -67,16 +67,16 @@
     gap: 3px;
 }
 
-button.edit {
+button#edit {
     background-color: transparent;
     border: none;
 }
 
-button.edit img {
+button#edit img {
     width: 30px;
 }
 
-button.edit img:hover {
+button#edit img:hover {
     transform: scale(1.1);
 }
 
