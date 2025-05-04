@@ -1,5 +1,9 @@
 import editImg from "../img/Edit Icon (1).png";
-import { prioritySVG } from "./svg";
+import priority1 from "../img/Priority 1.png";
+import priority2 from "../img/Priority 2.png";
+import priority3 from "../img/Priority 3.png";
+
+
 
 export class Card {
     static cards = [];
@@ -45,9 +49,18 @@ export class Card {
         cardHeader.appendChild(titleContainer);
 
         // Priority SVG
-        const svgDiv = document.createElement("div");
-        svgDiv.innerHTML = prioritySVG.trim();
-        cardHeader.appendChild(svgDiv.firstElementChild);
+        const priorityImg = document.createElement("img");
+        priorityImg.id = "priority";
+
+        if (this.task.priority === 1) {
+            priorityImg.src = priority1;
+        } else if (this.task.priority === 2) {
+            priorityImg.src = priority2;
+        } else if (this.task.priority === 3) {
+            priorityImg.src = priority3;
+        }
+        
+        cardHeader.appendChild(priorityImg);
 
         return cardHeader;
     }
@@ -134,3 +147,4 @@ export function addSubtaskStates(subtasks) {
     
     return subtaskStates;
 }
+

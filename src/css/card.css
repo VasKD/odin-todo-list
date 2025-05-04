@@ -85,20 +85,6 @@ button#edit img:hover {
     height: 30px;
 }
 
-#one, 
-#two,
-#three {
-    opacity: .5;
-}
-
-#one:hover, 
-#two:hover,
-#three:hover {
-    opacity: 1;
-    cursor: pointer;
-}
-
-
 h3 {
     font-family: "DM Sans", sans-serif;
     color: #9b4922;

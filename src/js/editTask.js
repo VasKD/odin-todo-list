@@ -1,25 +1,44 @@
 import { Task } from "./task";
 import { addSubtaskStates } from "./card";
 import { formatDate } from "./createTask";
+import priority1 from "../img/Priority 1.png";
+import priority2 from "../img/Priority 2.png";
+import priority3 from "../img/Priority 3.png";
+
+
 
 export function editTask() {
     const editTaskModal = document.getElementById("edit-task");
     const editTaskForm = document.getElementById("edit-task-form");
+    const deleteButton = document.getElementById("delete");
+    const cardsContainer = document.querySelector(".cards-container");
     let currentTaskCard = null;
-
+    let taskObject = null;
 
     document.addEventListener("click", (e) => {
         if (e.target.closest("#edit")) {
             editTaskModal.showModal();
             currentTaskCard = e.target.closest(".task-card");
-        }
+            taskObject = Task.tasks.find(task => task.id === currentTaskCard.id);
+        }   
+    });
+
+
+    deleteButton.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // remove task from DOM
+        cardsContainer.removeChild(currentTaskCard);
+
+        // remove task from object list
+        let objectIndex = Task.tasks.findIndex(task => task.id === taskObject.id);
+        Task.tasks.splice(objectIndex, 1);
     });
 
    
     editTaskForm.addEventListener("submit", (e) => {
         e.preventDefault();
-        const taskObject = Task.tasks.find(task => task.id === currentTaskCard.id);
-
+       
         // prevent changes being made to completed tasks
         if (checkCompletion(taskObject)) {
             return;
@@ -62,10 +81,18 @@ export function editTask() {
 
 
         // update priority
-        let newPriority = document.getElementById("edit-priority").value;
+        let newPriority = Number(document.getElementById("edit-priority").value);
+        let priorityImg = currentTaskCard.querySelector("#priority");
+        console.log(priorityImg, newPriority);
         if (newPriority !== "") {
             taskObject.priority = newPriority;
-            console.log(taskObject);
+             if (newPriority === 1) {
+                priorityImg.src = priority1;
+            } else if (newPriority === 2) {
+                priorityImg.src = priority2;
+            } else if (newPriority === 3) {
+                priorityImg.src = priority3;
+            }
         }
 
 
@@ -82,6 +109,7 @@ export function editTask() {
     const exitButton = document.querySelector("#edit-exit");
     exitButton.addEventListener("click", () => editTaskModal.close());
 }
+
 
 
 

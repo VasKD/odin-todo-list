@@ -32,7 +32,7 @@ function createTask() {
             let project = document.getElementById("project").value;
             console.log(project);
 
-            const task = new Task(title, subtasks, dueDate, priority, project);
+            const task = new Task(title, subtasks, dueDate, Number(priority), project);
             const card = new Card(task);
         }
         
@@ -46,4 +46,5 @@ export function formatDate(date) {
     const formattedDate = format(date, "MMMM do");
     return formattedDate;
 }
+
 

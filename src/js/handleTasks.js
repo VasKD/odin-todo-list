@@ -1,4 +1,5 @@
 import { Task } from "./task";
+import { displayToast } from "./toast";
 
 // keep track of the progression of completing tasks
 export function subtaskEventListener() {
@@ -20,10 +21,10 @@ export function subtaskEventListener() {
 
             // once all subtasks are completed, task is completed as well
             if (currentTask.subtasks.every(subtask => subtask.completed)){
-                    alert("You've completed all the subtasks for this task!");
-                    taskCard.style.display = "none";
-                    currentTask.toggleComplete();
-                    console.log(currentTask.completed);
+                displayToast();
+                taskCard.style.display = "none";
+                currentTask.toggleComplete();
+                console.log(currentTask.completed);
             }
         }
     });
@@ -42,8 +43,8 @@ export function noSubtaskEventListener() {
 
             if (!currentTask.completed){
                 currentTask.toggleComplete();
-                alert("You've completed this task. Way to go!");
                 taskCard.style.display = "none";
+                displayToast();
             }
         }
     });

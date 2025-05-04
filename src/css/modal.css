@@ -112,4 +112,12 @@
     align-self: center;
 }
 
+#edit-task .edit-btns {
+    display: flex;
+    gap: 8px;
+}
+
+#edit-task-form button {
+    transform: scale(.9);
+}
 
