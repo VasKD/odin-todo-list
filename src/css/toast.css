@@ -1,0 +1,31 @@
+@keyframes fadeInOut {
+    0%   { opacity: 0; transform: translateX(300px); }
+    30%  { opacity: 1; transform: translateY(0); }
+    70%  { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateX(300px); }
+}
+
+#toast-container {
+    position: fixed;
+    height: 90px;
+    width: 300px;
+    bottom: 10px;
+    right: 5px;
+    padding: 10px;
+    border-radius: 20px;
+    color: #764b36;
+    background-color: #efe7dd;
+    animation: fadeInOut 4s ease-in-out forwards; 
+}
+
+#toast-container h2 {
+    font-family: "Roxborough", serif;
+    margin-bottom: 8px;
+    text-decoration: underline;
+    text-decoration-thickness: .5px;
+    text-underline-offset: 4px;
+}
+
+#toast-container p {
+    font-family: "DM Sans", sans-serif;
+}
