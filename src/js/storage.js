@@ -3,20 +3,23 @@ import { Card } from "./card";
 import { format, startOfDay } from "date-fns";
 
 
+
+// ****************
+// * Task Storage *
+// ****************
+
+
 export function saveTasksToStorage() {
     localStorage.setItem("tasks", JSON.stringify(Task.tasks));
-    console.log(localStorage);
 }
 
 export function loadTasksFromStorage() {
     const savedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
     Task.tasks = savedTasks.map(task => Task.fromJSON(task));
-    console.log(Task.tasks);
     return Task.tasks;
 }
 
 export function displayStoredTasks() {
-    console.log(Task.tasks);
     for (const task of Task.tasks){
         const card = new Card(task);
 
@@ -48,6 +51,14 @@ export function initializeDefaultTask() {
     } 
 }
 
+
+
+
+// *******************
+// * Project Storage *
+// *******************
+
+
 export function saveProjectsToStorage() {
     const addedProjects = document.querySelectorAll("#projects-menu button:not(.add-project)");
     console.log(addedProjects);
@@ -56,7 +67,6 @@ export function saveProjectsToStorage() {
         .slice(2)
         .map(btn => btn.textContent.trim());
 
-    console.log(projectNames);
     localStorage.setItem("projects", JSON.stringify(projectNames));
 }
 
@@ -77,8 +87,8 @@ export function loadProjectsFromStorage() {
 
 function addProject(project) {
     const addProjectBtn = document.querySelector(".add-project");
-
     const projectTab = document.createElement("button");
+
     projectTab.id = project.toLowerCase();
     projectTab.textContent = project;
     addProjectBtn.before(projectTab);
