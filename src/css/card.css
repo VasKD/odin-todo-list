@@ -196,17 +196,9 @@ input:checked + p {
     cursor: pointer;
 }
 
-/* .no-task:hover::after {
-    position: relative;
-    content: "Click to Complete Task";
-    font-size: 1.3rem;
-    color: #9b4922;
-    bottom: 15%;
-    cursor: pointer;
-} */
 
-
-@media (min-width: 1300px) {
+/* Styling for xxl screens */
+@media (min-width: 1400px) {
     .task-card {
         max-width: 520px;
         height: 360px;
@@ -214,5 +206,9 @@ input:checked + p {
 
     div.tasks-container {
         height: 220px;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }

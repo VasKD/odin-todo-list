@@ -43,9 +43,8 @@ export function filteredViews() {
 
         // project filtered view
         if (e.target.closest("#projects-menu") && e.target.classList[0] !== "add-project" && e.target.id !== "projects-menu") {
-            addHighlight(e.target);
-            console.log(e.target);
             let projectTasks = Task.tasks.filter(task => task.project === tab && !task.completed);
+            addHighlight(e.target);
             clearDOM(allCards);
             displayCards(projectTasks, allCards);
         }

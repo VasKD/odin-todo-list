@@ -23,6 +23,34 @@ export class Task {
         Task.tasks.push(this);
     }
 
+    // give json access to private properties
+    toJSON() {
+        return {
+            id: this.#id,
+            title: this.#title,
+            dueDate: this.#dueDate,
+            priority: this.#priority,
+            project: this.#project,
+            subtasks: this.#subtasks,
+            completed: this.#completed
+        };
+    }
+
+    // reconstruct the task objects
+    static fromJSON(obj) {
+        const task = new Task(obj.id, obj.title, obj.dueDate, obj.priority, obj.project, obj.subtasks, obj.completed);
+
+        task.#id = obj.id;
+        task.#title = obj.title;
+        task.#dueDate = obj.dueDate;
+        task.#priority = obj.priority;
+        task.#project = obj.project;
+        task.#subtasks = obj.subtasks;
+        task.#completed = obj.completed;
+
+        return task;
+    }
+
     toggleComplete() {
         this.#completed = !this.#completed;
     }

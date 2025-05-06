@@ -20,9 +20,7 @@ export class Card {
         // Create card container
         const taskCard = document.createElement("div");
         taskCard.classList.add("task-card");
-        console.log(this.task.id);
         taskCard.id = this.task.id;
-        console.log(this.task.project);
 
         // Add header and content to the card
         taskCard.appendChild(this.createCardHeader());
@@ -94,7 +92,6 @@ export class Card {
         } else {
             this.task.subtasks = addSubtaskStates(this.task.subtasks);
             for (const item of this.task.subtasks) {
-                console.log(item.title);
                 tasksContainer.appendChild(this.createSubtask(item.title.trim()));
             }
         }
@@ -139,6 +136,10 @@ export class Card {
 }
 
 export function addSubtaskStates(subtasks) {
+    if (Array.isArray(subtasks)) {
+        return subtasks;
+    }
+
     subtasks = subtasks.split(",");
     const subtaskStates = subtasks.map(title => ({
         title: title.trim(),
