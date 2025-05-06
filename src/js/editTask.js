@@ -4,6 +4,8 @@ import { formatDate } from "./createTask";
 import priority1 from "../img/Priority 1.png";
 import priority2 from "../img/Priority 2.png";
 import priority3 from "../img/Priority 3.png";
+import { loadTasksFromStorage, saveTasksToStorage } from "./storage";
+import { displayToast } from "./toast";
 
 
 
@@ -33,6 +35,9 @@ export function editTask() {
         // remove task from object list
         let objectIndex = Task.tasks.findIndex(task => task.id === taskObject.id);
         Task.tasks.splice(objectIndex, 1);
+
+        saveTasksToStorage();
+        loadTasksFromStorage();
     });
 
    
@@ -41,13 +46,16 @@ export function editTask() {
        
         // prevent changes being made to completed tasks
         if (checkCompletion(taskObject)) {
+            editTaskModal.close();
             return;
         }
 
         // update object and card title
         const newTitle = document.getElementById("edit-title").value;
-        taskObject.title = newTitle;
-        updateTitle(currentTaskCard.querySelector("h2"), newTitle);
+        if (newTitle !== "") {
+            taskObject.title = newTitle;
+            updateTitle(currentTaskCard.querySelector("h2"), newTitle);
+        }
 
         // add subtasks to object and corresponding card
         let newSubtask = document.getElementById("add-subtask").value;
@@ -83,10 +91,9 @@ export function editTask() {
         // update priority
         let newPriority = Number(document.getElementById("edit-priority").value);
         let priorityImg = currentTaskCard.querySelector("#priority");
-        console.log(priorityImg, newPriority);
-        if (newPriority !== "") {
+        if (newPriority > 0 && newPriority < 4) {
             taskObject.priority = newPriority;
-             if (newPriority === 1) {
+            if (newPriority === 1) {
                 priorityImg.src = priority1;
             } else if (newPriority === 2) {
                 priorityImg.src = priority2;
@@ -100,12 +107,12 @@ export function editTask() {
         let newProject = document.getElementById("edit-project").value;
         if (newProject !== "") {
             taskObject.project = newProject;
-            console.log(taskObject);
         }
             
         editTaskForm.reset();
+        saveTasksToStorage();
     });
-
+    
     const exitButton = document.querySelector("#edit-exit");
     exitButton.addEventListener("click", () => editTaskModal.close());
 }
@@ -115,15 +122,13 @@ export function editTask() {
 
 function checkCompletion(task){
     if (task.completed) {
-        alert("Changes cannot be made to a completed task");
+        displayToast("edit");
         return true;
     }
 }
 
 function updateTitle(title, newTitle){
-    if (newTitle !== ""){
-        title.textContent = newTitle;
-    }
+    title.textContent = newTitle;
 }
     
 function addSubtasks(newSubtasks, currentTaskCard){

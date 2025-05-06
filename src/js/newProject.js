@@ -1,3 +1,5 @@
+import { saveProjectsToStorage } from "./storage";
+
 export function createProject(){
     const addProjectModal = document.getElementById("add-project");
 
@@ -31,7 +33,7 @@ export function createProject(){
             const option = projectOption.cloneNode(true);
             selection.appendChild(option);
         });
-        
+        saveProjectsToStorage();
     });
 }
 

@@ -1,6 +1,7 @@
 import { parseISO, format } from 'date-fns';
 import { Task } from './task';
 import { Card } from './card';
+import { saveTasksToStorage, loadTasksFromStorage } from './storage';
 export { createTask };
 
 function createTask() {
@@ -36,6 +37,8 @@ function createTask() {
             const card = new Card(task);
         }
         
+        saveTasksToStorage();
+        loadTasksFromStorage();
         addTaskForm.reset();
     });
 }
