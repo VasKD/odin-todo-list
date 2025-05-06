@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Todo It</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <!-- DM Sans -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <script defer src="main.js"></script></head>
+    <body>
+        <div class="app-container">
+            <nav>
+                <h1>Todo It</h1>
+                <div class="nav-btns">
+                    <button id="tasks" class="clicked">Tasks</button>
+                    <button id="completed">Completed</button>
+                    <div class="dropdown-wrapper">
+                        <button id="projects">
+                            Projects
+                            <svg id="arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#764b36" height="800px" width="800px" version="1.1" viewBox="0 0 491.996 491.996" xml:space="preserve">
+                                <g>
+                                    <g>
+                                        <path d="M484.132,124.986l-16.116-16.228c-5.072-5.068-11.82-7.86-19.032-7.86c-7.208,0-13.964,2.792-19.036,7.86l-183.84,183.848    L62.056,108.554c-5.064-5.068-11.82-7.856-19.028-7.856s-13.968,2.788-19.036,7.856l-16.12,16.128    c-10.496,10.488-10.496,27.572,0,38.06l219.136,219.924c5.064,5.064,11.812,8.632,19.084,8.632h0.084    c7.212,0,13.96-3.572,19.024-8.632l218.932-219.328c5.072-5.064,7.856-12.016,7.864-19.224    C491.996,136.902,489.204,130.046,484.132,124.986z"/>
+                                    </g>
+                                </g>
+                            </svg>
+                        </button>
+                        <div id="projects-menu" class="dropdown">
+                            <button id="personal">Personal</button>
+                            <button id="work">Work</button>
+                            <button class="add-project">Add Project</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="main">
+                <div class="header">
+                    <h1>Your Tasks</h1>
+                    <button class="create-task">+</button>
+                </div>
+
+                <div class="cards-container">
+                </div>
+            </div>
+        </div>
+
+        <dialog id="add-task">
+            <div class="add-task-header">
+                <h2>Add Task</h2>
+                <button id="exit"><img src="b45933a3cfbe8bda48cd.png" alt="exit icon"></button>
+            </div>
+            <form id="add-task-form">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" placeholder="Groceries" required>
+                
+                <label for="subtasks">Subtasks</label>
+                <input type="text" id="subtasks" name="subtasks" placeholder="Milk, Eggs, Bread, ...">
+
+                <label for="due-date">Due Date</label>
+                <input type="date" id="due-date" name="due-date" required>
+
+                <label for="task-priority">Priority</label>
+                <input type="number" id="task-priority" name="priority" min="1" max="3" required>
+
+                <label for="project">Project</label>
+                <select name="project" id="project">
+                    <option value="personal">Personal</option>
+                    <option value="work">Work</option>
+                </select>
+                <button type="submit">Create Task</button>
+            </form>
+        </dialog>
+
+        <dialog id="add-project">
+            <div class="add-project-header">
+                <h2>Add Project</h2>
+                <button id="project-exit"><img src="b45933a3cfbe8bda48cd.png" alt="exit icon"></button>
+            </div>
+            <form id="add-project-form">
+                <label for="project-name">Project Name</label>
+                <input type="text" id="project-name" name="project-name">
+                <button type="submit">Create Project</button>
+            </form>
+        </dialog>
+
+        <dialog id="edit-task">
+            <div class="edit-task-header">
+                <h2>Edit Task</h2>
+                <button id="edit-exit"><img src="b45933a3cfbe8bda48cd.png" alt="exit icon"></button>
+            </div>
+            <form id="edit-task-form">
+                <label for="edit-title">Edit Title</label>
+                <input type="text" id="edit-title" name="edit-title">
+
+                <label for="add-subtask">Add Subtask</label>
+                <input type="text" name="add-subtask" id="add-subtask">
+
+                <label for="remove-subtask">Remove Subtask</label>
+                <input type="text" name="remove-subtask" id="remove-subtask">
+
+                <label for="edit-due-date">Due Date</label>
+                <input type="date" id="edit-due-date" name="edit-due-date">
+
+                <label for="edit-priority">Edit Priority</label>
+                <input type="number" name="edit-priority" id="edit-priority" min="1" max="3">
+
+                <label for="edit-project">Project</label>
+                <select name="edit-project" id="edit-project">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="personal">Personal</option>
+                    <option value="work">Work</option>
+                </select>
+                <div class="edit-btns">
+                    <button type="submit">Submit Changes</button>
+                    <button id="delete">Delete</button>
+                </div>
+            </form>
+        </dialog>
+    </body>
+</html>
